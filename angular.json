@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "p4",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -75,7 +75,8 @@
               "browserTarget": "ADIpractice4app:build:production"
             },
             "development": {
-              "browserTarget": "ADIpractice4app:build:development"
+              "browserTarget": "ADIpractice4app:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
