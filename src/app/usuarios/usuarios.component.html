@@ -1,0 +1,16 @@
+<p>usuarios works!</p>
+<table>
+    <tr>
+        <th> id </th>
+        <th>documento</th>
+        <th>tipo</th>
+        <th>login</th>
+        <th>password</th>
+    <tr *ngFor="let usuario of usuarioList">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.documento}}</td>
+        <td>{{usuario.tipo}}</td>
+        <td>{{usuario.login}}</td>
+        <td>{{usuario.password}}</td>
+    </tr>
+</table>
