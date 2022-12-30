@@ -1,0 +1,14 @@
+<p>Enter profession name</p>
+<div *ngIf="message !== ''" class="alert alert-success">{{message}}</div>
+<form #matriculaCreateForm="ngForm" (ngSubmit)="CreateMatricula()">
+    <div class="form-group">
+        <input required required minlength="2" maxlength="20" class="form-control" type="text" name="profession"
+        [(ngModel)]="matricula.profession" placeholder="profession name">
+    </div>
+    <div>
+        <button mat-raised-button color="primary" [disabled]="matriculaCreateForm.invalid" class="btn btn-primary" type="submit">Submit</button>&nbsp;
+        <button mat-raised-button color="primary" [routerLink]="['/matriculas']">Back</button>
+    </div>
+</form>
+
+

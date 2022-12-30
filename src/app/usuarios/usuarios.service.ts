@@ -18,14 +18,14 @@ export class UsuariosService {
 
   login(login: String, password: String) {
     return this.http.post('/api/login', {login: login, password: password}).subscribe(
-      (res) => {
+      res => {
     this.result = JSON.stringify(res) 
-    this.result = this.getTokenFromAuthHeader(this.result)
+    this.result = this.getToken(this.result)
     localStorage.setItem("Authorization", this.result)
-      }, err => {alert(JSON.stringify(err))})
+      }, err => {alert(err)})
   }
 
-  getTokenFromAuthHeader(header: String) {
+  getToken(header: String) {
       var data = header.split(" ");
       data[1] = data[1].replace("\"", "")
       data[1] = data[1].replace("}", "")

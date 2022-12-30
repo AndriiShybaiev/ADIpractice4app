@@ -3,8 +3,21 @@
     <tr>
         <th> id </th>
         <th>profession</th>
+        <th></th>
+        <th></th>
     <tr *ngFor="let matricula of matriculaList">
         <td>{{matricula.id}}</td>
         <td>{{matricula.profession}}</td>
+        <td>
+        <!-- <td ngIf="loggedIn"> -->
+            <button mat-raised-button color="primary" [routerLink]="['/matriculas' , matricula.id]">Update</button>
+        </td>
+        <td> 
+            <button mat-raised-button color="warn" (click)="deleteMatricula(matricula.id)">Delete</button>
+        </td>
+        <td></td>
     </tr>
 </table>
+
+<button mat-raised-button color="primary" [routerLink]="['/matriculas/new']">Create new matricula</button>
+

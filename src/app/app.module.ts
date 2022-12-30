@@ -18,6 +18,8 @@ import { MatListModule } from '@angular/material/list';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { MatriculaUpdateComponent } from './matriculas/matricula-update/matricula-update.component';
+import { MatriculaCreateComponent } from './matriculas/matricula-create/matricula-create.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { LoginComponent } from './login/login.component';
     UsuariosComponent,
     NavigationComponent,
     NotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    MatriculaUpdateComponent,
+    MatriculaCreateComponent
   ],
   imports: [
     BrowserModule,

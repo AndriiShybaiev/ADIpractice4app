@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Matricula } from './matriculas';
 import { MatriculasService } from './matriculas.service';
 
@@ -9,10 +9,12 @@ import { MatriculasService } from './matriculas.service';
 })
 export class MatriculasComponent implements OnInit {
 
-  // matriculas: Matricula = {
-  //   id: 999,
-  //   profession: 'test'
-  // }
+  matricula: Matricula = {
+    id: 0,
+    profession: ''
+  }
+
+  message: string = '';
 
   matriculaList: Matricula[] = []
 
@@ -24,4 +26,15 @@ export class MatriculasComponent implements OnInit {
     })
   }
 
+  deleteMatricula(id: number) {
+    this.matriculasService.deleteMatricula(id).subscribe()
+    const index =  this.matriculaList.findIndex(x => x.id==id)
+    if (index > -1) {
+      this.matriculaList.splice(index, 1);
 }
+    
+  }
+
+}
+
+

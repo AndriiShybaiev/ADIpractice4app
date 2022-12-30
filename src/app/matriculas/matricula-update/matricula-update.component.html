@@ -1,0 +1,13 @@
+<h1>Update Matricula</h1>
+<div>Matricula id {{matricula.id}}</div>
+<div>Matricula profession {{matricula.profession}}</div>
+<div *ngIf="message !== ''" class="alert alert-success">{{message}}</div>
+<form #matriculaUpdateForm="ngForm" (ngSubmit)="UpdateMatricula()">
+    <div class="form-group">
+        <input required required minlength="2" maxlength="20" class="form-control" type="text" name="profession"
+            [(ngModel)]="matricula.profession" placeholder="profession name">
+    </div>
+    <div>
+        <button [disabled]="matriculaUpdateForm.invalid" class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
