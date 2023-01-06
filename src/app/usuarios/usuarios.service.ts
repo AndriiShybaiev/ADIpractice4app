@@ -8,12 +8,13 @@ import { Usuario } from './usuarios';
 export class UsuariosService {
   usuarioList : Usuario[] = []
   result : string = '';
+  header = new HttpHeaders({"Authorization": `Bearer ${localStorage.getItem("Authorization")}`})
 
   constructor(private http:HttpClient) { }
 
   getUsuarios() {
-    const header = new HttpHeaders({"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6ImFkaSJ9.pHfeE8Zyczq4dVFkD33uTdDSAaaJP_v06DmLfxInMb4"})
-    return this.http.get<Usuario[]>('/api/usuarios', {headers: header});
+    //const header = new HttpHeaders({"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6ImFkaSJ9.pHfeE8Zyczq4dVFkD33uTdDSAaaJP_v06DmLfxInMb4"})
+    return this.http.get<Usuario[]>('/api/usuarios', {headers: this.header});
   }
 
   login(login: String, password: String) {
@@ -31,4 +32,21 @@ export class UsuariosService {
       data[1] = data[1].replace("}", "")
         return data[1];
       }
+
+  getUsuario(id: number) {
+    return this.http.get<Usuario>(`/api/usuarios/${id}`, {headers: this.header})
+  }
+
+  addUsuario(usuario: Usuario) {
+    return this.http.post('/api/usuarios', usuario, {headers: this.header})
+  }
+
+  editUsuario(usuario: Usuario) {
+    return this.http.put<Usuario>(`/api/usuarios/${usuario.id}`, usuario, {headers: this.header})
+  }
+
+  deleteUsuario(id: number) {
+    return this.http.delete(`/api/usuarios/${id}`, {headers: this.header})
+  }
+
 }

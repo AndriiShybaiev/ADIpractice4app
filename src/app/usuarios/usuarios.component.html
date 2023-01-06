@@ -6,11 +6,22 @@
         <th>tipo</th>
         <th>login</th>
         <th>password</th>
+        <th></th>
+        <th></th>
     <tr *ngFor="let usuario of usuarioList">
         <td>{{usuario.id}}</td>
         <td>{{usuario.documento}}</td>
         <td>{{usuario.tipo}}</td>
         <td>{{usuario.login}}</td>
         <td>{{usuario.password}}</td>
+        <td>
+            <button mat-raised-button color="primary" [routerLink]="['/usuarios' , usuario.id]">Update</button>
+        </td>
+        <td>
+            <button mat-raised-button color="warn" (click)="deleteUsuario(usuario.id)">Delete</button>
+        </td>
     </tr>
 </table>
+
+<button mat-raised-button color="primary" [routerLink]="['/usuarios/new']">Create new usuario</button>
+

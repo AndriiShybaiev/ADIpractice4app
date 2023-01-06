@@ -9,6 +9,8 @@ import { UsuariosService } from './usuarios.service';
 })
 export class UsuariosComponent implements OnInit {
 
+  message: string = '';
+
   usuarioList: Usuario[] = []
 
   constructor(private usuariosService: UsuariosService) { }
@@ -17,6 +19,14 @@ export class UsuariosComponent implements OnInit {
     this.usuariosService.getUsuarios().subscribe(usuarios => {
       this.usuarioList = usuarios;
     })
+  }
+
+  deleteUsuario(id: number) {
+    this.usuariosService.deleteUsuario(id).subscribe()
+    const index = this.usuarioList.findIndex(x => x.id==id)
+    if (index > -1) {
+      this.usuarioList.splice(index, 1);
+    }
   }
 
 }

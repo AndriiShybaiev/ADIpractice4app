@@ -20,6 +20,11 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatriculaUpdateComponent } from './matriculas/matricula-update/matricula-update.component';
 import { MatriculaCreateComponent } from './matriculas/matricula-create/matricula-create.component';
+import { ContratosComponent } from './contratos/contratos.component';
+import { UsuarioCreateComponent } from './usuarios/usuario-create/usuario-create.component';
+import { UsuarioUpdateComponent } from './usuarios/usuario-update/usuario-update.component';
+import { ContratoCreateComponent } from './contratos/contrato-create/contrato-create.component';
+import { ContratoUpdateComponent } from './contratos/contrato-update/contrato-update.component';
 
 
 @NgModule({
@@ -32,7 +37,12 @@ import { MatriculaCreateComponent } from './matriculas/matricula-create/matricul
     NotfoundComponent,
     LoginComponent,
     MatriculaUpdateComponent,
-    MatriculaCreateComponent
+    MatriculaCreateComponent,
+    ContratosComponent,
+    UsuarioCreateComponent,
+    UsuarioUpdateComponent,
+    ContratoCreateComponent,
+    ContratoUpdateComponent
   ],
   imports: [
     BrowserModule,

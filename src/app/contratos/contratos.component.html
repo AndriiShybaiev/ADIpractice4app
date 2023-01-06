@@ -1,0 +1,27 @@
+<h1>Contratos</h1>
+<table>
+    <tr>
+        <th>contrato_id </th>
+        <th>usuario_id</th>
+        <th>matricula_id</th>
+        <th>year</th>
+        <th>price</th>
+        <th></th>
+        <th></th>
+    <tr *ngFor="let contrato of contratoList">
+        <td>{{contrato.id}}</td>
+        <td>{{contrato.usuario_id}}</td>
+        <td>{{contrato.matricula_id}}</td>
+        <td>{{contrato.year}}</td>
+        <td>{{contrato.price}}</td>
+        <td>
+        <!-- <td ngIf="loggedIn"> -->
+            <button mat-raised-button color="primary" [routerLink]="['/contratos' , contrato.id]">Update</button>
+        </td>
+        <td> 
+            <button mat-raised-button color="warn" (click)="deleteContrato(contrato.id)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<button mat-raised-button color="primary" [routerLink]="['/contratos/new']">Create new contrato</button>

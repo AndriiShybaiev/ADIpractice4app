@@ -1,0 +1,29 @@
+<h1>Update Contrato</h1>
+<div>Contrato id {{contrato.id}}</div>
+<div>Contrato usuario_id {{contrato.usuario_id}}</div>
+<div>Contrato matricula_id {{contrato.matricula_id}}</div>
+<div>Contrato ano {{contrato.year}}</div>
+<div>Contrato precio {{contrato.price}}</div>
+<div *ngIf="message !== ''" class="alert alert-success">{{message}}</div>
+<form #contratoUpdateForm="ngForm" (ngSubmit)="UpdateContrato()">
+    <div class="form-group">
+        <input required required class="form-control" type="number" name="usuario_id"
+        [(ngModel)]="contrato.usuario_id" placeholder="user id">
+    </div>
+    <div class="form-group">
+        <input required required class="form-control" type="number" name="matricula_id"
+        [(ngModel)]="contrato.matricula_id" placeholder="matricula id">
+    </div>
+    <div class="form-group">
+        <input required  class="form-control" min="2000" max="2050" type="number" name="year"
+        [(ngModel)]="contrato.year" placeholder="contrato ano">
+    </div>
+    <div class="form-group">
+        <input required required min="1" class="form-control" type="number" name="price"
+        [(ngModel)]="contrato.price" placeholder="contrato precio">
+    </div>
+    <div>
+        <button mat-raised-button color="primary" [disabled]="contratoUpdateForm.invalid" class="btn btn-primary" type="submit">Submit</button>&nbsp;
+        <button mat-raised-button color="primary" [routerLink]="['/contratos']">Back</button>
+    </div>
+</form>

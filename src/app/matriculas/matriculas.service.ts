@@ -7,6 +7,7 @@ import { Matricula } from './matriculas';
 })
 export class MatriculasService {
   matriculaList: Matricula[] =[]
+  header = new HttpHeaders({"Authorization": `Bearer ${localStorage.getItem("Authorization")}`})
 
   constructor(private http:HttpClient) { }
 
@@ -19,22 +20,20 @@ export class MatriculasService {
   }
 
   addMatricula(matricula: Matricula) {
-    const header = new HttpHeaders({"Authorization": `Bearer ${localStorage.getItem("Authorization")}`})
-    return this.http.post('/api/matriculas/', matricula, {headers: header})
+    //const header = new HttpHeaders({"Authorization": `Bearer ${localStorage.getItem("Authorization")}`})
+    return this.http.post('/api/matriculas/', matricula, {headers: this.header})
   }
 
   editMatricula(matricula: Matricula) {
-    const token = localStorage.getItem("Authorization")
-    const temp = {"Authorization": `Bearer ${token}`}
-    const header = new HttpHeaders(temp)
-    return this.http.put<Matricula>(`/api/matriculas/${matricula.id}`, matricula, {headers: header});
+    // const token = localStorage.getItem("Authorization")
+    // const temp = {"Authorization": `Bearer ${token}`}
+    // const header = new HttpHeaders(temp)
+    return this.http.put<Matricula>(`/api/matriculas/${matricula.id}`, matricula, {headers: this.header});
   }
 
   deleteMatricula(id: number) {
-    // const token = 
-    // const temp = 
-    const header = new HttpHeaders({"Authorization": `Bearer ${localStorage.getItem("Authorization")}`})
-    return this.http.delete(`/api/matriculas/${id}`, {headers: header})
+    //const header = new HttpHeaders({"Authorization": `Bearer ${localStorage.getItem("Authorization")}`})
+    return this.http.delete(`/api/matriculas/${id}`, {headers: this.header})
   }
 
 }
