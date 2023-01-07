@@ -13,7 +13,6 @@ export class UsuariosService {
   constructor(private http:HttpClient) { }
 
   getUsuarios() {
-    //const header = new HttpHeaders({"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6ImFkaSJ9.pHfeE8Zyczq4dVFkD33uTdDSAaaJP_v06DmLfxInMb4"})
     return this.http.get<Usuario[]>('/api/usuarios', {headers: this.header});
   }
 
@@ -23,7 +22,11 @@ export class UsuariosService {
     this.result = JSON.stringify(res) 
     this.result = this.getToken(this.result)
     localStorage.setItem("Authorization", this.result)
-      }, err => {alert(err)})
+      }, err => {alert(JSON.stringify(err))})
+  }
+
+  logout() {
+    localStorage.removeItem("Authorization")
   }
 
   getToken(header: String) {
@@ -47,6 +50,17 @@ export class UsuariosService {
 
   deleteUsuario(id: number) {
     return this.http.delete(`/api/usuarios/${id}`, {headers: this.header})
+  }
+
+  isLoggedIn(): Boolean {
+    if(localStorage.getItem("Authorization")!=='' && localStorage.getItem("Authorization")!==null) {
+      console.log("logged in")
+      return true
+    }
+    else {
+      console.log("NOT logged in")
+      return false
+    }
   }
 
 }

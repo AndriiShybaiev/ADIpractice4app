@@ -1,4 +1,5 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
+import { UsuariosService } from '../usuarios/usuarios.service';
 import { Matricula } from './matriculas';
 import { MatriculasService } from './matriculas.service';
 
@@ -18,7 +19,7 @@ export class MatriculasComponent implements OnInit {
 
   matriculaList: Matricula[] = []
 
-  constructor(private matriculasService: MatriculasService) { }
+  constructor(private matriculasService: MatriculasService,private usuariosService: UsuariosService) { }
 
   ngOnInit(): void {
     this.matriculasService.getMatriculas().subscribe(matriculas => {
@@ -33,6 +34,10 @@ export class MatriculasComponent implements OnInit {
       this.matriculaList.splice(index, 1);
 }
     
+  }
+
+  loggedIn() {
+    return this.usuariosService.isLoggedIn()
   }
 
 }
