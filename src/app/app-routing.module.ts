@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContratoCreateComponent } from './contratos/contrato-create/contrato-create.component';
 import { ContratoUpdateComponent } from './contratos/contrato-update/contrato-update.component';
 import { ContratosComponent } from './contratos/contratos.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MatriculaCreateComponent } from './matriculas/matricula-create/matricula-create.component';
 import { MatriculaUpdateComponent } from './matriculas/matricula-update/matricula-update.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'contratos/new', component: ContratoCreateComponent},
   {path: 'contratos/:contratoId', component: ContratoUpdateComponent},
   {path: 'login', component: LoginComponent},
+  {path: '', component: HomeComponent},
   {path: '**', component: NotfoundComponent }
 ];
 

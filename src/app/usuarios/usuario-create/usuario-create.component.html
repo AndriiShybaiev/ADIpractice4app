@@ -1,28 +1,46 @@
-<h1>Create Usuario</h1>
+<h1>
+    <div *ngIf="loggedIn(); else elseBlock2">
+        Create Usuario
+    </div>
+    <ng-template #elseBlock2>
+        Register
+    </ng-template>
+
+</h1>
 <div *ngIf="message !== ''" class="alert alert-success">{{message}}</div>
 <form #usuarioCreateForm="ngForm" (ngSubmit)="CreateUsuario()">
     <div class="form-group">
+        <label class="form-label">User ID</label>
         <input required required minlength="2" maxlength="20" class="form-control" type="text" name="documento"
         [(ngModel)]="usuario.documento" placeholder="user document">
     </div>
     <div class="form-group">
+        <label class="form-label">User type</label>
         <input required required class="form-control" type="number" name="tipo"
         [(ngModel)]="usuario.tipo" placeholder="user type code (number)">
     </div>
     <div class="form-group">
+        <label class="form-label">User name</label>
         <input required required minlength="2" maxlength="20" class="form-control" type="text" name="nombre"
         [(ngModel)]="usuario.nombre" placeholder="user nombre">
     </div>
     <div class="form-group">
+        <label class="form-label">Login</label>
         <input required required minlength="2" maxlength="20" class="form-control" type="text" name="login"
         [(ngModel)]="usuario.login" placeholder="user login">
     </div>
     <div class="form-group">
+        <label class="form-label">Password</label>
         <input required required minlength="6" maxlength="20" class="form-control" type="password" name="password"
         [(ngModel)]="usuario.password" placeholder="user password">
     </div>
     <div>
         <button mat-raised-button color="primary" [disabled]="usuarioCreateForm.invalid" class="btn btn-primary" type="submit">Submit</button>&nbsp;
-        <button mat-raised-button color="primary" [routerLink]="['/usuarios']">Back</button>
+        <div *ngIf="loggedIn(); else elseBlock">
+            <button mat-raised-button color="primary" [routerLink]="['/usuarios']">Back</button>
+        </div>
+        <ng-template #elseBlock>
+            <button mat-raised-button color="primary" [routerLink]="['']">Back</button>
+        </ng-template>
     </div>
 </form>

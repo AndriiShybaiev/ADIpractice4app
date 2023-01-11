@@ -54,11 +54,9 @@ export class UsuariosService {
 
   isLoggedIn(): Boolean {
     if(localStorage.getItem("Authorization")!=='' && localStorage.getItem("Authorization")!==null) {
-      console.log("logged in")
       return true
     }
     else {
-      console.log("NOT logged in")
       return false
     }
   }

@@ -29,4 +29,8 @@ export class UsuarioCreateComponent implements OnInit {
     this.usuariosService.addUsuario(this.usuario).subscribe((data) => (this.message = 'Usuario Created'))
   }
 
+  loggedIn() {
+    return this.usuariosService.isLoggedIn()
+  }
+
 }

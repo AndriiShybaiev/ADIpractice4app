@@ -1,6 +1,12 @@
 # ADIpractice4app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.10.
+This is the final practice project for "Aplicaciones Distribuidas en Internet" subject for Univercity of Alicante, a front end application developed on Angular framework.
+- 3 CRUD method sets for 'Usuarios','Matriculas','Contratos' entities
+- User authentication using JWT
+- Angular Routing
+- Angular Material and Bootstrap design components
+
+project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.10.
 
 ## Development server
 

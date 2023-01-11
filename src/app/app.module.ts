@@ -25,6 +25,7 @@ import { UsuarioCreateComponent } from './usuarios/usuario-create/usuario-create
 import { UsuarioUpdateComponent } from './usuarios/usuario-update/usuario-update.component';
 import { ContratoCreateComponent } from './contratos/contrato-create/contrato-create.component';
 import { ContratoUpdateComponent } from './contratos/contrato-update/contrato-update.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ContratoUpdateComponent } from './contratos/contrato-update/contrato-up
     UsuarioCreateComponent,
     UsuarioUpdateComponent,
     ContratoCreateComponent,
-    ContratoUpdateComponent
+    ContratoUpdateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
