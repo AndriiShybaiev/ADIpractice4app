@@ -26,6 +26,7 @@ import { UsuarioUpdateComponent } from './usuarios/usuario-update/usuario-update
 import { ContratoCreateComponent } from './contratos/contrato-create/contrato-create.component';
 import { ContratoUpdateComponent } from './contratos/contrato-update/contrato-update.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuardService } from './auth-guard.service';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { HomeComponent } from './home/home.component';
     MatListModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
