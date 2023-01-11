@@ -4,6 +4,7 @@ This is the final practice project for "Aplicaciones Distribuidas en Internet" s
 - 3 CRUD method sets for 'Usuarios','Matriculas','Contratos' entities
 - User authentication using JWT
 - Angular Routing
+- Angular AuthGuard
 - Angular Material and Bootstrap design components
 
 project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.10.
